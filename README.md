@@ -57,3 +57,13 @@ The source code is published under GPLv3 with OpenSSL exception, the license is 
 [cmake]: docs/building-cmake.md
 [preview_image]: https://github.com/telegramdesktop/tdesktop/blob/dev/docs/assets/preview.png "Preview of Telegram Desktop"
 [preview_image_url]: https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/docs/assets/preview.png
+
+## Remove lock from the default output audio device
+
+The client uses virtual OpenAL Soft playback device. OpenAL locks audio output, so audio system can't change it (for example with Pulseaudio we can't change output device using pavucontrol).  
+To be able to change output device create a file `~/.alsoftrc` with the following content:
+
+```
+[pulse]
+allow-moves=yes
+```
