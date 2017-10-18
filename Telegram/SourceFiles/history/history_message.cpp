@@ -245,7 +245,6 @@ void FastShareMessage(not_null<HistoryItem*> item) {
 			}
 			data->requests.remove(requestId);
 			if (data->requests.empty()) {
-				Ui::Toast::Show(lang(lng_share_done));
 				Ui::hideLayer();
 			}
 		};
